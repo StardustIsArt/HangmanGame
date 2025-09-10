@@ -8,18 +8,17 @@ class Program
         
         List<string> possibleWords = new List<string>(){"galaxy", "asgard", "space", "flare"};
 
-        Random word = new Random();
-        string randomWord = possibleWords[word.Next(0, possibleWords.Count)];
+        Random rand = new Random();
+        string randomWord = possibleWords[rand.Next(0, possibleWords.Count)];
+        Console.WriteLine(randomWord);
         
-        Console.WriteLine("What's your letter choice: ");
-        string charInput = Console.ReadLine();
-        foreach (char c in randomWord)
-        {
-            if (charInput == )
-            {
-                Console.WriteLine(c);
-            }   
-        }
+        
+      //  Console.WriteLine("What's your letter choice: ");
+     //   string charInput = Console.ReadLine();
+     //   foreach (char c in randomWord)
+     //   {
+     //       Console.WriteLine(c);   
+     //   }
         
        
         
