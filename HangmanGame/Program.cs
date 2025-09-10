@@ -1,4 +1,6 @@
-﻿namespace HangmanGame;
+﻿using Microsoft.VisualBasic.CompilerServices;
+
+namespace HangmanGame;
 
 class Program
 {
@@ -10,19 +12,18 @@ class Program
 
         Random rand = new Random();
         string randomWord = possibleWords[rand.Next(0, possibleWords.Count)];
-        Console.WriteLine(randomWord);
-        
-        
-      //  Console.WriteLine("What's your letter choice: ");
-     //   string charInput = Console.ReadLine();
-     //   foreach (char c in randomWord)
-     //   {
-     //       Console.WriteLine(c);   
-     //   }
+   
+        Console.WriteLine("What's your letter choice: ");
+        string charInput = Console.ReadLine();
+        foreach (char c in randomWord)
+        {
+            var space = char.IsLetterOrDigit(c);
+            Console.WriteLine(space.ToString());
+        }
         
        
         
-        //should I put the chosen random word into a variable while cycling through the letters?
+       
         //place randomWord into a function (or is that how one would in JS) that cycles through the character array of that
         //particular randomWord. if yes - print letter in correct position and ask for another letter. if no state "try again".
         //print out the current state of the game.
