@@ -15,6 +15,12 @@ class Program
    
         Console.WriteLine("What's your letter choice: ");
         string charInput = Console.ReadLine();
-   
+
+        char value = char.Parse(charInput);
+        string missingValue = "_";
+        if (value != char.Parse(randomWord))
+        {
+            Console.WriteLine(missingValue);
+        }
     }
 }
