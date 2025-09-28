@@ -16,19 +16,21 @@ class Program
         string charInput = Console.ReadLine();
 
         char value = char.Parse(charInput);
-        
-        if (value == randomWord.IndexOf(value)) {
-            Console.WriteLine(randomWord.IndexOf(value));
-        }
-        foreach (char c in randomWord)
+
+        if (randomWord.Contains(value))
         {
-            if (Char.IsLetter(c))
-                Console.Write("_ ");
-            else
+            Console.WriteLine(randomWord.IndexOf(value));
+
+            foreach (char c in randomWord)
             {
-                Console.Write(c + " ");
+                if (Char.IsLetter(c))
+                    Console.Write("_ ");
+                else
+                {
+                    Console.Write(c + " ");
+                }
             }
-        }   
-        
+        }
+
     }
 }
