@@ -9,28 +9,26 @@ class Program
         Console.WriteLine("Let's play the hangman game!");
         
         List<string> possibleWords = new List<string>(){"galaxy", "asgard", "space", "flare", "quantum"};
-       
         Random rand = new Random();
         string randomWord = possibleWords[rand.Next(0, possibleWords.Count)];
-
-        foreach (char c in randomWord)
-        {
-            if (Char.IsLetter(c))
-                Console.WriteLine("_ ");
-            else
-            {
-                Console.WriteLine(c + " ");
-            }
-        }   
         
         Console.WriteLine("What's your letter choice: ");
         string charInput = Console.ReadLine();
 
         char value = char.Parse(charInput);
         
-        Console.WriteLine(randomWord.IndexOf(value));
-            
+        if (value == randomWord.IndexOf(value)) {
+            Console.WriteLine(randomWord.IndexOf(value));
+        }
+        foreach (char c in randomWord)
+        {
+            if (Char.IsLetter(c))
+                Console.Write("_ ");
+            else
+            {
+                Console.Write(c + " ");
+            }
+        }   
         
-    
     }
 }
