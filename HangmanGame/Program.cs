@@ -26,7 +26,7 @@ class Program
                 if (Char.IsLetter(c))
                     //if (randomWord.Contains(charInput))
                     //{
-                    Console.Write(randomWord.Contains(c));   
+                    Console.Write(value);   
                     //}
                     else
                     {
