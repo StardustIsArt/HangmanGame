@@ -16,7 +16,6 @@ class Program
             Console.Write("_ ");
         }
         Console.WriteLine("\nWhat's your letter choice: ");
-        
         string charInput = Console.ReadLine();
         char value = char.Parse(charInput);
 
@@ -25,11 +24,14 @@ class Program
             foreach (char c in randomWord)
             {
                 if (Char.IsLetter(c))
-                    Console.Write(randomWord.IndexOf(value));
-                else
-                {
-                    Console.Write("_ ");
-                }
+                    //if (randomWord.Contains(charInput))
+                    //{
+                    Console.Write(randomWord.Contains(c));   
+                    //}
+                    else
+                    {
+                        Console.Write("_ ");
+                    }
             }
         }
 
