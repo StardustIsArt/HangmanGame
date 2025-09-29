@@ -24,14 +24,13 @@ class Program
             foreach (char c in randomWord)
             {
                 if (Char.IsLetter(c))
-                    //if (randomWord.Contains(charInput))
-                    //{
+                   
                     Console.Write(value);   
-                    //}
-                    else
-                    {
-                        Console.Write("_ ");
-                    }
+                
+                else
+                {
+                    Console.Write("_ ");
+                }
             }
         }
 
