@@ -13,7 +13,7 @@ class Program
         string randomWord = possibleWords[rand.Next(0, possibleWords.Count)];
         foreach (char c in randomWord)
         {
-            Console.Write("_ ");
+            Console.Write(" _ ");
         }
         Console.WriteLine("\nWhat's your letter choice: ");
         string charInput = Console.ReadLine();
@@ -25,13 +25,14 @@ class Program
             {
                 if (randomWord[i] == value)
                 {
-                    Console.Write(randomWord[i] );
+                    Console.Write(randomWord[i]);
                 }
-                else
-                {
-                    Console.Write("_ ");
-                }
+                
             }
+        }
+        else
+        {
+            Console.Write("Guess again: ");
         }
 
     }
