@@ -21,12 +21,12 @@ class Program
 
         if (randomWord.Contains(value))
         {
-            foreach (char c in randomWord)
+            for (int i = 0; i < randomWord.Length; i++)
             {
-                if (Char.IsLetter(c))
-                   
-                    Console.Write(value);   
-                
+                if (randomWord[i] == value)
+                {
+                    Console.Write(randomWord[i] );
+                }
                 else
                 {
                     Console.Write("_ ");
