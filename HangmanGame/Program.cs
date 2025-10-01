@@ -11,9 +11,16 @@ class Program
         List<string> possibleWords = new List<string>(){"galaxy", "asgard", "space", "flare", "quantum"};
         Random rand = new Random();
         string randomWord = possibleWords[rand.Next(0, possibleWords.Count)];
-        foreach (char c in randomWord)
+        char[] hiddenWord = randomWord.ToCharArray();
+        char[] displayLetters = new char[randomWord.Length];
+        //foreach (char c in randomWord)
+        //{
+        //    Console.Write(" _ ");
+        //}
+        for (int i = 0; i < randomWord.Length; i++)
         {
-            Console.Write(" _ ");
+            displayLetters[i] = '_';
+            Console.Write(displayLetters[i]);
         }
         Console.WriteLine("\nWhat's your letter choice: ");
         string charInput = Console.ReadLine();
@@ -21,9 +28,9 @@ class Program
 
         if (randomWord.Contains(value))
         {
-            for (int i = 0; i < randomWord.Length; i++)
+            for (int i = 0; i < hiddenWord.Length; i++)
             {
-                if (randomWord[i] == value)
+                if (hiddenWord[i] == value)
                 {
                     Console.Write(randomWord[i]);
                 }
@@ -37,3 +44,5 @@ class Program
 
     }
 }
+
+// needed is a counter for how many tries they get and which number of tries they are on. 
