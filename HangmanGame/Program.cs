@@ -13,10 +13,7 @@ class Program
         string randomWord = possibleWords[rand.Next(0, possibleWords.Count)];
         char[] hiddenWord = randomWord.ToCharArray();
         char[] displayLetters = new char[randomWord.Length];
-        //foreach (char c in randomWord)
-        //{
-        //    Console.Write(" _ ");
-        //}
+       
         for (int i = 0; i < randomWord.Length; i++)
         {
             displayLetters[i] = '_';
@@ -25,6 +22,7 @@ class Program
         Console.WriteLine("\nWhat's your letter choice: ");
         string charInput = Console.ReadLine();
         char value = char.Parse(charInput);
+        
 
         if (randomWord.Contains(value))
         {
