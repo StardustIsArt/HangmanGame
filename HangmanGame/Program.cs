@@ -23,22 +23,23 @@ class Program
         string charInput = Console.ReadLine();
         char value = char.Parse(charInput);
         
-
-        if (randomWord.Contains(value))
+        for (int i = 0; i < hiddenWord.Length; i++)
         {
-            for (int i = 0; i < hiddenWord.Length; i++)
+            if (randomWord.Contains(value))
             {
                 if (hiddenWord[i] == value)
-                {
-                    Console.Write(randomWord[i]);
+                { 
+                    Console.Write(hiddenWord[i]);
                 }
-                
+             
+            }   
+            else
+            {
+                Console.Write("Guess again: ");
+                charInput = Console.ReadLine();
             }
-        }
-        else
-        {
-            Console.Write("Guess again: ");
-        }
+    }
+    
 
     }
 }
