@@ -23,24 +23,36 @@ class Program
         string charInput = Console.ReadLine();
         char value = char.Parse(charInput);
         
-        for (int i = 0; i < hiddenWord.Length; i++)
+       /* for (int i = 0; i < hiddenWord.Length; i++)
         {
-            if (randomWord.Contains(value))
-            {
-                if (hiddenWord[i] == value)
-                { 
-                    Console.Write(hiddenWord[i]);
-                }
-             
-            }   
+            if (displayLetters[i] == value)
+            { 
+                Console.Write(displayLetters[i]);
+            }
             else
             {
-                Console.Write("Guess again: ");
+                Console.Write("Guess again: "); 
                 charInput = Console.ReadLine();
             }
-    }
-    
-
+        }*/
+       while (displayLetters[value] != value)
+       {
+           Console.Write("\nGuess again: ");
+           if (value == hiddenWord.Length)
+           {
+               for (int i = 0; i < hiddenWord.Length; i++)
+               {
+                   if (hiddenWord[i] == value)
+                   {
+                       displayLetters[i] = value;
+                   }
+                   else
+                   {
+                       Console.Write(value);
+                   }
+               } 
+           }
+       }
     }
 }
 
