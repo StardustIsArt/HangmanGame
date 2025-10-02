@@ -17,15 +17,14 @@ class Program
         for (int i = 0; i < randomWord.Length; i++)
         {
             displayLetters[i] = '_';
-            Console.Write(displayLetters[i]);
         }
 
         bool wordGuessed = false;
-
         while (!wordGuessed)
         {
-            Console.WriteLine("\nWhat's your letter choice: ");
             Console.WriteLine(new string(displayLetters));
+            Console.WriteLine("What's your letter choice: ");
+            
             string charInput = Console.ReadLine();
             char guess = char.Parse(charInput);
             
@@ -34,16 +33,15 @@ class Program
                 if (hiddenWord[i] == guess)
                 { 
                     displayLetters[i] = guess;
-                    //Console.Write(displayLetters[i]);
-                }
-                else
-                { 
-                    //Console.Write(guess);
                 }
             }
+
+            if (!hiddenWord.Contains(guess))
+            {
+                Console.WriteLine("Try again");
+            }
+            
         }
-
-
         if (wordGuessed)
         { 
             Console.WriteLine("You WON! Thanks for playing: " + randomWord);
@@ -51,7 +49,9 @@ class Program
         else
         { 
             Console.WriteLine("You Lost! Thanks for playing: " + randomWord);
-        }
+        } 
+
+        
     }
 }
 
