@@ -25,56 +25,35 @@ class Program
         while (!wordGuessed)
         {
             Console.WriteLine("\nWhat's your letter choice: ");
+            Console.WriteLine(new string(displayLetters));
             string charInput = Console.ReadLine();
             char guess = char.Parse(charInput);
-            if (guess == hiddenWord.Length)
+            
+            for (int i = 0; i < hiddenWord.Length; i++)
             {
-                for (int i = 0; i < hiddenWord.Length; i++)
-                {
-                    displayLetters[i] = hiddenWord[i];
-                    Console.Write(displayLetters[i]);
-                    if (hiddenWord[i] == guess)
-                    {
-                        displayLetters[i] = guess;
-                    }
-                    else
-                    {
-                        Console.Write(guess);
-                    }
+                if (hiddenWord[i] == guess)
+                { 
+                    displayLetters[i] = guess;
+                    //Console.Write(displayLetters[i]);
+                }
+                else
+                { 
+                    //Console.Write(guess);
                 }
             }
         }
 
+
         if (wordGuessed)
-        {
+        { 
             Console.WriteLine("You WON! Thanks for playing: " + randomWord);
         }
         else
-        {
+        { 
             Console.WriteLine("You Lost! Thanks for playing: " + randomWord);
         }
-        
-       
-      /* while (displayLetters[guess] != guess)
-       {
-           Console.Write("\nGuess again: ");
-           
-           if (guess == hiddenWord.Length)
-           {
-               for (int i = 0; i < hiddenWord.Length; i++)
-               {
-                   if (hiddenWord[i] == guess)
-                   {
-                       displayLetters[i] = guess;
-                   }
-                   else
-                   {
-                       Console.Write(guess);
-                   }
-               } 
-           }
-       }*/
     }
 }
+
 
 // needed is a counter for how many tries they get and which number of tries they are on. 
