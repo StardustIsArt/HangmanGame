@@ -40,7 +40,6 @@ class Program
             {
                 Console.WriteLine("Try again");
             }
-            
         }
         if (wordGuessed)
         { 
@@ -50,8 +49,6 @@ class Program
         { 
             Console.WriteLine("You Lost! Thanks for playing: " + randomWord);
         } 
-
-        
     }
 }
 
