@@ -19,40 +19,61 @@ class Program
             displayLetters[i] = '_';
             Console.Write(displayLetters[i]);
         }
-        Console.WriteLine("\nWhat's your letter choice: ");
-        string charInput = Console.ReadLine();
-        char value = char.Parse(charInput);
-        
-       /* for (int i = 0; i < hiddenWord.Length; i++)
+
+        bool wordGuessed = false;
+
+        while (!wordGuessed)
         {
-            if (displayLetters[i] == value)
-            { 
-                Console.Write(displayLetters[i]);
-            }
-            else
+            Console.WriteLine("\nWhat's your letter choice: ");
+            string charInput = Console.ReadLine();
+            char guess = char.Parse(charInput);
+            if (guess == hiddenWord.Length)
             {
-                Console.Write("Guess again: "); 
-                charInput = Console.ReadLine();
+                for (int i = 0; i < hiddenWord.Length; i++)
+                {
+                    displayLetters[i] = hiddenWord[i];
+                    Console.Write(displayLetters[i]);
+                    if (hiddenWord[i] == guess)
+                    {
+                        displayLetters[i] = guess;
+                    }
+                    else
+                    {
+                        Console.Write(guess);
+                    }
+                }
             }
-        }*/
-       while (displayLetters[value] != value)
+        }
+
+        if (wordGuessed)
+        {
+            Console.WriteLine("You WON! Thanks for playing: " + randomWord);
+        }
+        else
+        {
+            Console.WriteLine("You Lost! Thanks for playing: " + randomWord);
+        }
+        
+       
+      /* while (displayLetters[guess] != guess)
        {
            Console.Write("\nGuess again: ");
-           if (value == hiddenWord.Length)
+           
+           if (guess == hiddenWord.Length)
            {
                for (int i = 0; i < hiddenWord.Length; i++)
                {
-                   if (hiddenWord[i] == value)
+                   if (hiddenWord[i] == guess)
                    {
-                       displayLetters[i] = value;
+                       displayLetters[i] = guess;
                    }
                    else
                    {
-                       Console.Write(value);
+                       Console.Write(guess);
                    }
                } 
            }
-       }
+       }*/
     }
 }
 
