@@ -13,6 +13,8 @@ class Program
         char[] hiddenWord = randomWord.ToCharArray();
         char[] displayLetters = new char[randomWord.Length];
 
+        List<char> guessedLetters = new List<char>();
+        
         for (int i = 0; i < randomWord.Length; i++)
         {
             displayLetters[i] = '_';
@@ -27,6 +29,7 @@ class Program
             Console.WriteLine($"You have {lives} guesses remaining.");
             string charInput = Console.ReadLine();
             char guess = char.Parse(charInput);
+            
 
             if (!hiddenWord.Contains(guess))
             {
@@ -36,8 +39,13 @@ class Program
                 {
                     Console.WriteLine("Game over! You lost!");
                 }
-
-                continue;
+                if (guessedLetters.Contains(guess))
+                {
+                    Console.WriteLine("You have already guessed this letter.");
+                    Console.ReadKey();
+                    continue;
+                }
+                guessedLetters.Add(guess);
             }
 
             for (int i = 0; i < hiddenWord.Length; i++)
@@ -52,6 +60,7 @@ class Program
             {
                 wordGuessed = true;
             }
+           
         }
 
         if (wordGuessed)
