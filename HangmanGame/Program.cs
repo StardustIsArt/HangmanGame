@@ -45,10 +45,6 @@ class Program
                 Console.WriteLine("You WON! Thanks for playing: " + randomWord);
                 break;
             }
-            
-            
-            
-
         }
     }
 }
