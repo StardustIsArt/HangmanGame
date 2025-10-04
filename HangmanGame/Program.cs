@@ -7,13 +7,12 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Let's play the hangman game!");
-        
-        List<string> possibleWords = new List<string>(){"galaxy", "asgard", "space", "flare", "quantum"};
+        List<string> possibleWords = new List<string>() { "galaxy", "asgard", "space", "flare", "quantum" };
         Random rand = new Random();
         string randomWord = possibleWords[rand.Next(0, possibleWords.Count)];
         char[] hiddenWord = randomWord.ToCharArray();
         char[] displayLetters = new char[randomWord.Length];
-       
+
         for (int i = 0; i < randomWord.Length; i++)
         {
             displayLetters[i] = '_';
@@ -28,7 +27,7 @@ class Program
             Console.WriteLine($"You have {lives} guesses remaining.");
             string charInput = Console.ReadLine();
             char guess = char.Parse(charInput);
-            
+
             if (!hiddenWord.Contains(guess))
             {
                 lives--;
@@ -37,21 +36,27 @@ class Program
                 {
                     Console.WriteLine("Game over! You lost!");
                 }
+
+                continue;
             }
-            
+
             for (int i = 0; i < hiddenWord.Length; i++)
             {
                 if (hiddenWord[i] == guess)
-                { 
+                {
                     displayLetters[i] = guess;
-                } 
+                }
             }
+
             if (new string(displayLetters) == randomWord)
-            { 
-                Console.WriteLine("You WON! Thanks for playing: " + randomWord);
-                break;
+            {
+                wordGuessed = true;
             }
-        
+        }
+
+        if (wordGuessed)
+        {
+            Console.WriteLine("You WON! Thanks for playing: " + randomWord);
         }
     }
 }
