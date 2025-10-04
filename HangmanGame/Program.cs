@@ -19,18 +19,24 @@ class Program
             displayLetters[i] = '_';
         }
 
+        int lives = 5;
         bool wordGuessed = false;
-        while (!wordGuessed)
+        while (!wordGuessed && lives > 0)
         {
             Console.WriteLine(new string(displayLetters));
             Console.WriteLine("What's your letter choice: ");
-            
+            Console.WriteLine($"You have {lives} guesses remaining.");
             string charInput = Console.ReadLine();
             char guess = char.Parse(charInput);
             
             if (!hiddenWord.Contains(guess))
             {
+                lives--;
                 Console.WriteLine("Try again");
+                if (lives == 0 && !wordGuessed)
+                {
+                    Console.WriteLine("Game over! You lost!");
+                }
             }
             
             for (int i = 0; i < hiddenWord.Length; i++)
@@ -45,6 +51,7 @@ class Program
                 Console.WriteLine("You WON! Thanks for playing: " + randomWord);
                 break;
             }
+        
         }
     }
 }
