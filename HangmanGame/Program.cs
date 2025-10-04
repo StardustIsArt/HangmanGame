@@ -38,19 +38,18 @@ class Program
                 if (hiddenWord[i] == guess)
                 { 
                     displayLetters[i] = guess;
-                }
+                } 
             }
-           
+            if (new string(displayLetters) == randomWord)
+            { 
+                Console.WriteLine("You WON! Thanks for playing: " + randomWord);
+                break;
+            }
             
+            
+            
+
         }
-        if (wordGuessed)
-        { 
-            Console.WriteLine("You WON! Thanks for playing: " + randomWord);
-        }
-        else
-        { 
-            Console.WriteLine("You Lost! Thanks for playing: " + randomWord);
-        } 
     }
 }
 
