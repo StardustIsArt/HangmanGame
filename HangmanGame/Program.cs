@@ -28,6 +28,11 @@ class Program
             string charInput = Console.ReadLine();
             char guess = char.Parse(charInput);
             
+            if (!hiddenWord.Contains(guess))
+            {
+                Console.WriteLine("Try again");
+            }
+            
             for (int i = 0; i < hiddenWord.Length; i++)
             {
                 if (hiddenWord[i] == guess)
@@ -35,11 +40,8 @@ class Program
                     displayLetters[i] = guess;
                 }
             }
-
-            if (!hiddenWord.Contains(guess))
-            {
-                Console.WriteLine("Try again");
-            }
+           
+            
         }
         if (wordGuessed)
         { 
