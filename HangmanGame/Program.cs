@@ -34,17 +34,18 @@ class Program
             if (!hiddenWord.Contains(guess))
             {
                 lives--;
-                Console.WriteLine("Try again");
-                if (lives == 0 && !wordGuessed)
-                {
-                    Console.WriteLine("Game over! You lost!");
-                }
                 if (guessedLetters.Contains(guess))
                 {
                     Console.WriteLine("You have already guessed this letter.");
                     Console.ReadKey();
                     continue;
                 }
+                Console.WriteLine("Try again");
+                if (lives == 0 && !wordGuessed)
+                {
+                    Console.WriteLine("Game over! You lost!");
+                }
+                
                 guessedLetters.Add(guess);
             }
 
