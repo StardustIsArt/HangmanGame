@@ -29,8 +29,9 @@ class Program
             Console.WriteLine($"You have {lives} guesses remaining.");
             string charInput = Console.ReadLine();
             char guess = char.Parse(charInput);
-            
 
+            Console.WriteLine($"These are your letters that you already guessed: " + string.Join(", ", guessedLetters) + ".");
+            
             if (!hiddenWord.Contains(guess))
             {
                 lives--;
@@ -38,9 +39,11 @@ class Program
                 {
                     Console.WriteLine("You have already guessed this letter.");
                     Console.ReadKey();
+                    
                     continue;
                 }
                 Console.WriteLine("Try again");
+                
                 if (lives == 0 && !wordGuessed)
                 {
                     Console.WriteLine("Game over! You lost!");
