@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
+﻿using System.Security.Cryptography;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace HangmanGame;
 
@@ -13,14 +14,15 @@ class Program
         char[] hiddenWord = randomWord.ToCharArray();
         char[] displayLetters = new char[randomWord.Length];
 
+        const int LIVES_LEFT = 5;
         List<char> guessedLetters = new List<char>();
         
         for (int i = 0; i < randomWord.Length; i++)
         {
             displayLetters[i] = '_';
         }
-
-        int lives = 5;
+    
+        int lives = LIVES_LEFT;
         bool wordGuessed = false;
         while (!wordGuessed && lives > 0)
         {
